@@ -17,6 +17,9 @@ class ListTableViewController: UITableViewController {
     let setYear : [String] = ["2014年", "2015年", "2016年", "2017年", "2018年", "2019年"]
     let setSeason : [String] = ["冬アニメ", "春アニメ", "夏アニメ", "秋アニメ"]
     
+    
+    @IBOutlet weak var listTitleLabel: UINavigationItem!
+    
     var animeList:[[String:String]] = [[:]]
 
     override func viewDidLoad() {
@@ -29,9 +32,11 @@ class ListTableViewController: UITableViewController {
         guard let seasonIndex:Int = userDefaults.object(forKey: "seasonKey") as? Int else{
             return
         }
-        print(setYear[yearIndex])
-        print(setSeason[seasonIndex])
         
+        //タイトルにクール名を入れる
+        listTitleLabel.title = "\(setYear[yearIndex]) \(setSeason[seasonIndex])"
+        
+        //前ページで設定したものを取得
         animeList = (userDefaults.object(forKey: "animeList") as? [[String: String]])!
         
         // Uncomment the following line to preserve selection between presentations
