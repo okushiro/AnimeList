@@ -133,33 +133,47 @@
                                 <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Browser" translatesAutoresizingMaskIntoConstraints="NO" id="ZiS-hM-cLf">
-                                <rect key="frame" x="207.5" y="264" width="120" height="120"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="f90-0s-v5y">
+                                <rect key="frame" x="52.5" y="234" width="270" height="120"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gOa-l9-DoO">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="0PZ-Jd-syC"/>
+                                            <constraint firstAttribute="width" constant="120" id="I3O-3H-cWS"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="twitter"/>
+                                        <connections>
+                                            <action selector="didTouchTwitterBtn:" destination="1Zr-0M-WiH" eventType="touchUpInside" id="Bl7-bu-19d"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ALS-X4-4Uf">
+                                        <rect key="frame" x="150" y="0.0" width="120" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="2H3-0j-0lT"/>
+                                            <constraint firstAttribute="height" constant="120" id="GNS-2s-Y09"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="Browser"/>
+                                        <connections>
+                                            <action selector="didTouchBrowserBtn:" destination="1Zr-0M-WiH" eventType="touchUpInside" id="BnW-Ta-QGI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="rKe-zG-ONF"/>
-                                    <constraint firstAttribute="width" constant="120" id="svd-eD-R55"/>
+                                    <constraint firstAttribute="width" constant="270" id="EB7-o9-vFA"/>
                                 </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitter" translatesAutoresizingMaskIntoConstraints="NO" id="800-tA-Vho">
-                                <rect key="frame" x="27.5" y="264" width="160" height="120"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="gaS-UT-9VS"/>
-                                    <constraint firstAttribute="height" constant="120" id="tfl-DJ-iLg"/>
-                                </constraints>
-                            </imageView>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="f90-0s-v5y" firstAttribute="centerX" secondItem="sVn-TZ-jw0" secondAttribute="centerX" id="1pb-GE-J4r"/>
                             <constraint firstItem="e4b-XO-XOC" firstAttribute="leading" secondItem="pG2-CZ-JNy" secondAttribute="leading" constant="20" id="Kjl-IL-yTs"/>
                             <constraint firstItem="pG2-CZ-JNy" firstAttribute="trailing" secondItem="ksE-mw-WmF" secondAttribute="trailing" constant="20" id="Kug-Un-N0X"/>
                             <constraint firstItem="ksE-mw-WmF" firstAttribute="top" secondItem="pG2-CZ-JNy" secondAttribute="top" constant="30" id="Nds-Jo-tzt"/>
-                            <constraint firstItem="800-tA-Vho" firstAttribute="centerX" secondItem="sVn-TZ-jw0" secondAttribute="centerX" constant="-80" id="Ob9-Yp-JXq"/>
                             <constraint firstItem="ksE-mw-WmF" firstAttribute="leading" secondItem="pG2-CZ-JNy" secondAttribute="leading" constant="20" id="RG8-CZ-csM"/>
                             <constraint firstItem="e4b-XO-XOC" firstAttribute="top" secondItem="ksE-mw-WmF" secondAttribute="bottom" constant="30" id="VzS-2X-AD8"/>
-                            <constraint firstItem="ZiS-hM-cLf" firstAttribute="centerX" secondItem="sVn-TZ-jw0" secondAttribute="centerX" constant="80" id="gHI-Wg-wdj"/>
-                            <constraint firstItem="800-tA-Vho" firstAttribute="top" secondItem="e4b-XO-XOC" secondAttribute="bottom" constant="70" id="gw7-2Y-ldb"/>
                             <constraint firstItem="pG2-CZ-JNy" firstAttribute="trailing" secondItem="e4b-XO-XOC" secondAttribute="trailing" constant="20" id="iBP-cN-2kf"/>
-                            <constraint firstItem="ZiS-hM-cLf" firstAttribute="top" secondItem="e4b-XO-XOC" secondAttribute="bottom" constant="70" id="u41-aK-vpx"/>
+                            <constraint firstItem="f90-0s-v5y" firstAttribute="top" secondItem="ksE-mw-WmF" secondAttribute="bottom" constant="100" id="le3-Kr-cUG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pG2-CZ-JNy"/>
                     </view>
@@ -193,6 +207,6 @@
     </scenes>
     <resources>
         <image name="Browser" width="256" height="256"/>
-        <image name="twitter" width="534" height="400"/>
+        <image name="twitter" width="360" height="360"/>
     </resources>
 </document>
