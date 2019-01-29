@@ -163,6 +163,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pG2-CZ-JNy"/>
                     </view>
+                    <connections>
+                        <outlet property="animeTitleLabel" destination="ksE-mw-WmF" id="oWs-2h-ki7"/>
+                        <outlet property="hashtagLabel" destination="e4b-XO-XOC" id="LF7-3z-g0G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsI-31-fBQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

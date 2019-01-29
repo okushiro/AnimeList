@@ -12,13 +12,23 @@ class DetailViewController: UIViewController {
     
     let userDefaults = UserDefaults.standard
 
+    var selectAnime:[String:String] = [:]
+    
+    @IBOutlet weak var animeTitleLabel: UILabel!
+    
+    
+    @IBOutlet weak var hashtagLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let selectAnime = userDefaults.dictionary(forKey: "selectAnime") else{
-            return
-        }
-        print(selectAnime)
+        selectAnime = (userDefaults.object(forKey: "selectAnime") as? [String: String])!
+        
+        animeTitleLabel.text = selectAnime["title"]
+        
+        let hashtagText = selectAnime["twitter_hash_tag"]
+        
+        hashtagLabel.text = "#\(hashtagText!)"
 
         // Do any additional setup after loading the view.
     }
