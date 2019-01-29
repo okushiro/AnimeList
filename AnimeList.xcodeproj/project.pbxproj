@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5CA2440F5D428E9BC43964EC /* Pods_AnimeList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69208E6DCD95A0E102B1495C /* Pods_AnimeList.framework */; };
 		D42B2CEE21FC5C05002D3BC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42B2CED21FC5C05002D3BC4 /* AppDelegate.swift */; };
 		D42B2CF021FC5C05002D3BC4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42B2CEF21FC5C05002D3BC4 /* ViewController.swift */; };
 		D42B2CF321FC5C05002D3BC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D42B2CF121FC5C05002D3BC4 /* Main.storyboard */; };
 		D42B2CF521FC5C06002D3BC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D42B2CF421FC5C06002D3BC4 /* Assets.xcassets */; };
 		D42B2CF821FC5C06002D3BC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D42B2CF621FC5C06002D3BC4 /* LaunchScreen.storyboard */; };
+		D42B2D0021FD45D8002D3BC4 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42B2CFF21FD45D8002D3BC4 /* ListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12E6D9F265398EE474FC68D0 /* Pods-AnimeList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeList.release.xcconfig"; path = "Target Support Files/Pods-AnimeList/Pods-AnimeList.release.xcconfig"; sourceTree = "<group>"; };
+		69208E6DCD95A0E102B1495C /* Pods_AnimeList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimeList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA3F07262BCEEB0E579FFE05 /* Pods-AnimeList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeList.debug.xcconfig"; path = "Target Support Files/Pods-AnimeList/Pods-AnimeList.debug.xcconfig"; sourceTree = "<group>"; };
 		D42B2CEA21FC5C05002D3BC4 /* AnimeList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D42B2CED21FC5C05002D3BC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D42B2CEF21FC5C05002D3BC4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +27,7 @@
 		D42B2CF421FC5C06002D3BC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D42B2CF721FC5C06002D3BC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D42B2CF921FC5C06002D3BC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D42B2CFF21FD45D8002D3BC4 /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CA2440F5D428E9BC43964EC /* Pods_AnimeList.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		434FE9F0944AB3FA1439A457 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				69208E6DCD95A0E102B1495C /* Pods_AnimeList.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5D80F9669B4F22178485D4A0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CA3F07262BCEEB0E579FFE05 /* Pods-AnimeList.debug.xcconfig */,
+				12E6D9F265398EE474FC68D0 /* Pods-AnimeList.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D42B2CE121FC5C05002D3BC4 = {
 			isa = PBXGroup;
 			children = (
 				D42B2CEC21FC5C05002D3BC4 /* AnimeList */,
 				D42B2CEB21FC5C05002D3BC4 /* Products */,
+				5D80F9669B4F22178485D4A0 /* Pods */,
+				434FE9F0944AB3FA1439A457 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +86,7 @@
 				D42B2CF421FC5C06002D3BC4 /* Assets.xcassets */,
 				D42B2CF621FC5C06002D3BC4 /* LaunchScreen.storyboard */,
 				D42B2CF921FC5C06002D3BC4 /* Info.plist */,
+				D42B2CFF21FD45D8002D3BC4 /* ListTableViewController.swift */,
 			);
 			path = AnimeList;
 			sourceTree = "<group>";
@@ -71,9 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D42B2CFC21FC5C06002D3BC4 /* Build configuration list for PBXNativeTarget "AnimeList" */;
 			buildPhases = (
+				19B5E4C6176CC50851D65239 /* [CP] Check Pods Manifest.lock */,
 				D42B2CE621FC5C05002D3BC4 /* Sources */,
 				D42B2CE721FC5C05002D3BC4 /* Frameworks */,
 				D42B2CE821FC5C05002D3BC4 /* Resources */,
+				E3E15D3859E279A516A3C22F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,11 +159,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		19B5E4C6176CC50851D65239 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AnimeList-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E3E15D3859E279A516A3C22F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AnimeList/Pods-AnimeList-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AnimeList/Pods-AnimeList-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D42B2CE621FC5C05002D3BC4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D42B2D0021FD45D8002D3BC4 /* ListTableViewController.swift in Sources */,
 				D42B2CF021FC5C05002D3BC4 /* ViewController.swift in Sources */,
 				D42B2CEE21FC5C05002D3BC4 /* AppDelegate.swift in Sources */,
 			);
@@ -280,6 +359,7 @@
 		};
 		D42B2CFD21FC5C06002D3BC4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA3F07262BCEEB0E579FFE05 /* Pods-AnimeList.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +378,7 @@
 		};
 		D42B2CFE21FC5C06002D3BC4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12E6D9F265398EE474FC68D0 /* Pods-AnimeList.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
