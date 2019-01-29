@@ -17,10 +17,11 @@ class ListTableViewController: UITableViewController {
     let setYear : [String] = ["2014年", "2015年", "2016年", "2017年", "2018年", "2019年"]
     let setSeason : [String] = ["冬アニメ", "春アニメ", "夏アニメ", "秋アニメ"]
     
-    
     @IBOutlet weak var listTitleLabel: UINavigationItem!
     
     var animeList:[[String:String]] = [[:]]
+    
+    var selectAnime:[String:String] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +68,13 @@ class ListTableViewController: UITableViewController {
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        selectAnime = animeList[indexPath.row]
+        userDefaults.set(selectAnime, forKey: "selectAnime")
+    }
+    
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
