@@ -116,7 +116,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksE-mw-WmF">
-                                <rect key="frame" x="20" y="94" width="335" height="40"/>
+                                <rect key="frame" x="20" y="164" width="335" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="7Oy-ui-eXg"/>
                                 </constraints>
@@ -124,17 +124,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4b-XO-XOC">
-                                <rect key="frame" x="20" y="164" width="335" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="I7R-19-KTH"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="f90-0s-v5y">
-                                <rect key="frame" x="52.5" y="234" width="270" height="120"/>
+                                <rect key="frame" x="52.5" y="304" width="270" height="120"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gOa-l9-DoO">
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
@@ -163,23 +154,33 @@
                                     <constraint firstAttribute="width" constant="270" id="EB7-o9-vFA"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mK-5H-iBl">
+                                <rect key="frame" x="126" y="234" width="123" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Oww-W3-t4o"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="ハッシュタグ"/>
+                                <connections>
+                                    <action selector="didTouchHashtag:" destination="1Zr-0M-WiH" eventType="touchUpInside" id="eN3-fu-ouF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="f90-0s-v5y" firstAttribute="centerX" secondItem="sVn-TZ-jw0" secondAttribute="centerX" id="1pb-GE-J4r"/>
-                            <constraint firstItem="e4b-XO-XOC" firstAttribute="leading" secondItem="pG2-CZ-JNy" secondAttribute="leading" constant="20" id="Kjl-IL-yTs"/>
                             <constraint firstItem="pG2-CZ-JNy" firstAttribute="trailing" secondItem="ksE-mw-WmF" secondAttribute="trailing" constant="20" id="Kug-Un-N0X"/>
-                            <constraint firstItem="ksE-mw-WmF" firstAttribute="top" secondItem="pG2-CZ-JNy" secondAttribute="top" constant="30" id="Nds-Jo-tzt"/>
+                            <constraint firstItem="ksE-mw-WmF" firstAttribute="top" secondItem="pG2-CZ-JNy" secondAttribute="top" constant="100" id="Nds-Jo-tzt"/>
                             <constraint firstItem="ksE-mw-WmF" firstAttribute="leading" secondItem="pG2-CZ-JNy" secondAttribute="leading" constant="20" id="RG8-CZ-csM"/>
-                            <constraint firstItem="e4b-XO-XOC" firstAttribute="top" secondItem="ksE-mw-WmF" secondAttribute="bottom" constant="30" id="VzS-2X-AD8"/>
-                            <constraint firstItem="pG2-CZ-JNy" firstAttribute="trailing" secondItem="e4b-XO-XOC" secondAttribute="trailing" constant="20" id="iBP-cN-2kf"/>
+                            <constraint firstItem="5mK-5H-iBl" firstAttribute="centerX" secondItem="sVn-TZ-jw0" secondAttribute="centerX" id="WEl-zH-1AC"/>
+                            <constraint firstItem="5mK-5H-iBl" firstAttribute="top" secondItem="ksE-mw-WmF" secondAttribute="bottom" constant="30" id="gtl-t3-x5o"/>
                             <constraint firstItem="f90-0s-v5y" firstAttribute="top" secondItem="ksE-mw-WmF" secondAttribute="bottom" constant="100" id="le3-Kr-cUG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pG2-CZ-JNy"/>
                     </view>
                     <connections>
                         <outlet property="animeTitleLabel" destination="ksE-mw-WmF" id="oWs-2h-ki7"/>
-                        <outlet property="hashtagLabel" destination="e4b-XO-XOC" id="LF7-3z-g0G"/>
+                        <outlet property="hashtagLabel" destination="5mK-5H-iBl" id="AEy-3M-LIE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsI-31-fBQ" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -19,7 +19,10 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate {
     @IBOutlet weak var animeTitleLabel: UILabel!
     
     //公式ハッシュタグ
-    @IBOutlet weak var hashtagLabel: UILabel!
+    @IBOutlet weak var hashtagLabel: UIButton!
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +33,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate {
         
         let hashtagText = selectAnime["twitter_hash_tag"]
         
-        hashtagLabel.text = "#\(hashtagText!)"
+        hashtagLabel.setTitle("#\(hashtagText!)", for:UIControl.State.normal)
 
         // Do any additional setup after loading the view.
     }
@@ -51,6 +54,18 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate {
         let twitterViewController = SFSafariViewController(url: URL(string:twitterUrl)!)
         twitterViewController.delegate = self
         present(twitterViewController, animated: true, completion: nil)
+        
+    }
+    
+    //公式ハッシュタグで検索
+    
+    @IBAction func didTouchHashtag(_ sender: Any) {
+        
+        var hashtag = "https://twitter.com/hashtag/\(selectAnime["twitter_hash_tag"]!)?src=hash"
+        hashtag = hashtag.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
+        let hashtagViewController = SFSafariViewController(url: URL(string: hashtag)!)
+        hashtagViewController.delegate = self
+        present(hashtagViewController, animated: true, completion: nil)
         
     }
     
