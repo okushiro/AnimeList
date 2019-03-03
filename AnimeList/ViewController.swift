@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import PKHUD
 
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
@@ -68,6 +69,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     
     @IBAction func didTouchSearchBtn(_ sender: Any) {
+        
+        HUD.show(.progress)
+        
         // 1列目の選択されているrowの取得
         yearRow = yearPicker.selectedRow(inComponent: 0)
         userDefaults.set(yearRow, forKey: "yearKey")

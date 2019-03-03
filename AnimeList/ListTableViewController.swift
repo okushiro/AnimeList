@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import PKHUD
 
 class ListTableViewController: UITableViewController {
     
@@ -25,6 +26,8 @@ class ListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        HUD.hide()
         
         //選択したクールを取得
         guard let yearIndex:Int = userDefaults.object(forKey: "yearKey") as? Int else{
