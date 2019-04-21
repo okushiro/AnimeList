@@ -20,14 +20,13 @@ class ListTableViewController: UITableViewController {
     
     @IBOutlet weak var listTitleLabel: UINavigationItem!
     
-    var animeList:[[String:String]] = [[:]]
+    var animeList : [(
+        title:String, twitter_hash_tag:String, public_url:String, twitter_account:String
+        )] = []
     
-    var selectAnime:[String:String] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        HUD.hide()
         
         //選択したクールを取得
         guard let yearIndex:Int = userDefaults.object(forKey: "yearKey") as? Int else{
@@ -40,14 +39,37 @@ class ListTableViewController: UITableViewController {
         //タイトルにクール名を入れる
         listTitleLabel.title = "\(setYear[yearIndex]) \(setSeason[seasonIndex])"
         
-        //前ページで設定したものを取得
-        animeList = (userDefaults.object(forKey: "animeList") as? [[String: String]])!
+        //URL
+        let url:String = "https://api.moemoe.tokyo/anime/v1/master/\(yearIndex+2014)/\(seasonIndex+1)"
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //APIの取得
+        Alamofire.request(
+            url,
+            method: .get,
+            parameters: [:],
+            encoding: URLEncoding.default,
+            headers: nil
+            )
+            .responseJSON{(response: DataResponse<Any>) in
+                
+                let json = JSON(response.result.value as Any)
+                
+                self.animeList = []
+                for item in 0 ..< json.count {
+                    if let title = json[item]["title"].string,
+                        let twitter_hash_tag = json[item]["twitter_hash_tag"].string,
+                        let public_url = json[item]["public_url"].string,
+                        let twitter_account = json[item]["twitter_account"].string {
+                        let animeInfo = (title, twitter_hash_tag, public_url, twitter_account)
+                        self.animeList.append(animeInfo)
+                    }
+                }
+                
+                //データを更新
+                self.tableView.reloadData()
+                HUD.hide()
+        }
+        
     }
 
     // MARK: - Table view data source
@@ -67,15 +89,25 @@ class ListTableViewController: UITableViewController {
         
         // Configure the cell...
         
-        cell.textLabel?.text = animeList[indexPath.row]["title"]
+        cell.textLabel?.text = animeList[indexPath.row].title
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        selectAnime = animeList[indexPath.row]
-        userDefaults.set(selectAnime, forKey: "selectAnime")
+        
+        let selectAnime = animeList[indexPath.row]
+        
+        //辞書型に変更して保存
+        let saveData: [String: Any] = [
+            "title": selectAnime.title,
+            "twitter_hash_tag": selectAnime.twitter_hash_tag,
+            "public_url": selectAnime.public_url,
+            "twitter_account": selectAnime.twitter_account
+            ]
+        
+        userDefaults.set(saveData, forKey: "selectAnime")
     }
     
 

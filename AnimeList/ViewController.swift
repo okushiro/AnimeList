@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
 import PKHUD
 
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
@@ -48,9 +46,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     let setYear : [String] = ["2014年", "2015年", "2016年", "2017年", "2018年", "2019年"]
     let setSeason : [String] = ["冬アニメ", "春アニメ", "夏アニメ", "秋アニメ"]
     
-//    let yearKey = "year_value"
-//    let seasonKey = "season_value"
-    
     var yearRow:Int = 0
     var seasonRow:Int = 0
     
@@ -79,55 +74,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         seasonRow = yearPicker.selectedRow(inComponent: 1)
         userDefaults.set(seasonRow, forKey: "seasonKey")
         
-        //URL
-        let url:String = "https://api.moemoe.tokyo/anime/v1/master/\(yearRow+2014)/\(seasonRow+1)"
-        
-        //APIの取得
-        Alamofire.request(
-            url,
-            method: .get,
-            parameters: [:],
-            encoding: URLEncoding.default,
-            headers: nil
-            )
-            .responseJSON{(response: DataResponse<Any>) in
-                
-                let json = JSON(response.result.value as Any)
-                
-                self.animeList = []
-                for item in 0 ..< json.count {
-                    if let title = json[item]["title"].string,
-                        let twitter_hash_tag = json[item]["twitter_hash_tag"].string,
-                        let public_url = json[item]["public_url"].string,
-                        let twitter_account = json[item]["twitter_account"].string {
-                        let animeInfo = (title, twitter_hash_tag, public_url, twitter_account)
-                        self.animeList.append(animeInfo)
-                    }
-                }
-                
-                //辞書型に変更して保存
-                let saveData: [[String: Any]] = self.animeList.map {[
-                    "title": $0.title,
-                    "twitter_hash_tag": $0.twitter_hash_tag,
-                    "public_url": $0.public_url,
-                    "twitter_account": $0.twitter_account
-                    ]}
-                self.userDefaults.set(saveData, forKey: "animeList")
-                self.performSegue(withIdentifier: "toList", sender: nil)
-        }
-        
-        //リスト表示ページへ
-//        if animeList.isEmpty {return}
-//        self.userDefaults.set(self.animeList, forKey: "animeList")
-//        performSegue(withIdentifier: "toList", sender: nil)
+        performSegue(withIdentifier: "toList", sender: nil)
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let next = segue.destination as? ListTableViewController
-//        let _ = next?.view
-//        next?.yearRow = yearRow
-//        next?.seasonRow = seasonRow
-//    }
     
 }
 
