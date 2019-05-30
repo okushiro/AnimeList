@@ -49,10 +49,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     var yearRow:Int = 0
     var seasonRow:Int = 0
     
-    var animeList : [(
-        title:String, twitter_hash_tag:String, public_url:String, twitter_account:String
-        )] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
